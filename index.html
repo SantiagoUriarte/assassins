@@ -64,7 +64,7 @@
         <div class="container" style="margin-top: 20px; width: 800px">
              <textarea id="textarea" class="textarea" placeholder="Peter, John, Henry, Kim, etc" rows="5"></textarea>
              <p id="credits" class="credit has-text-centered" style="margin-top: 5px; margin-bottom: 15px">Designed and Developed by Santiago Uriarte 2018</p>
-             <div class="has-text-centered" style="padding-top: 50px"><h1 id="submit" class="button is-large">Submit</h1></div>
+             <div class="has-text-centered" style="padding-top: 50px;"><h1 id="submit" class="button is-large" style="width: 100px; margin-right: 5px">Submit</h1><h1 id="clear" class="button is-large" style="width: 100px; display: none" onclick="reset()">Clear</h1></div>
         </div>
         
         <div id="cardResults" class="container has-text-centered" style="margin-top:50px; width: 700px; visibility: hidden;">
@@ -93,7 +93,8 @@
         $("#submit").click(function() {
             var people = $('#textarea').val().split(',');
             
-            $("#cardResults").css("visibility", "visible")
+            $("#cardResults").css("visibility", "visible");
+            $("#clear").css("display", "inline-block");
             
             if(people.length > 1)
                 choose_people(people);
@@ -134,7 +135,13 @@
             
             $("#results").html(results);
         }
+        
+        function reset() {
+            $("#textarea").val("");
+            $("#cardResults").css("visibility", "hidden");
+            $("#clear").css("display", "none");
             
+        }
         
     </script>
 
